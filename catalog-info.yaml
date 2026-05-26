@@ -1,23 +1,23 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name | default("terraform-aws-CHANGEME") }}
-  description: ${{ values.description | default("Terraform module for CHANGEME") }}
+  name: tf-atom-s3-bucket-lifecycle-configuration-aws
+  description: "Terraform atom: AWS S3 Lifecycle - configures object transitions and expiration"
   annotations:
-    github.com/project-slug: PlatformStackPulse/${{ values.name | default("terraform-aws-CHANGEME") }}
+    github.com/project-slug: PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws
     backstage.io/techdocs-ref: dir:.
   tags:
     - terraform
     - aws
-    - infrastructure
+    - atom
+    - s3
+    - cost-optimization
   links:
-    - url: https://github.com/PlatformStackPulse/${{ values.name | default("terraform-aws-CHANGEME") }}
+    - url: https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws
       title: GitHub Repository
       icon: github
 spec:
   type: terraform-module
   lifecycle: production
-  owner: ${{ values.owner | default("platform-team") }}
-  system: ${{ values.system | default("infrastructure") }}
-  dependsOn:
-    - resource: terraform-module:PlatformStackPulse/tf-label
+  owner: platform-team
+  system: terraform-atoms
