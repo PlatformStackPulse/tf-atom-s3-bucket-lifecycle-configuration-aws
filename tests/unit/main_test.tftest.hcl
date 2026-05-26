@@ -41,7 +41,7 @@ run "supports_transition_rules" {
       transitions = [{
         days          = 30
         storage_class = "STANDARD_IA"
-      }, {
+        }, {
         days          = 90
         storage_class = "GLACIER"
       }]

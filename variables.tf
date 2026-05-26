@@ -17,13 +17,13 @@ variable "lifecycle_rules" {
       noncurrent_days = number
       storage_class   = string
     })), [])
-    expiration_days                         = optional(number, null)
-    noncurrent_version_expiration_days      = optional(number, null)
-    abort_incomplete_multipart_upload_days  = optional(number, null)
+    expiration_days                        = optional(number, null)
+    noncurrent_version_expiration_days     = optional(number, null)
+    abort_incomplete_multipart_upload_days = optional(number, null)
   }))
   default = [{
-    id     = "abort-incomplete-multipart"
-    status = "Enabled"
+    id                                     = "abort-incomplete-multipart"
+    status                                 = "Enabled"
     abort_incomplete_multipart_upload_days = 7
   }]
 }

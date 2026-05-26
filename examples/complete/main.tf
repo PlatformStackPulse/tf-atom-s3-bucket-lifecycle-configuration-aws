@@ -24,7 +24,7 @@ module "s3_lifecycle" {
       expiration_days = 365
     },
     {
-      id = "cleanup-multipart"
+      id                                     = "cleanup-multipart"
       abort_incomplete_multipart_upload_days = 7
     }
   ]
