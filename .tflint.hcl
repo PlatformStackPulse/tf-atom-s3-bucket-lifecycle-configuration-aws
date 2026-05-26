@@ -1,21 +1,9 @@
 plugin "terraform" {
   enabled = true
-  preset  = "all"
+  preset  = "recommended"
 }
 
-# Atom pattern: context.tf provides tf-label variables instead of declaring them
-# in variables.tf. This is intentional — disable the standard module structure check.
 rule "terraform_standard_module_structure" {
-  enabled = false
-}
-
-# Template: main.tf is empty until atom code is added.
-# These will resolve once a real resource is defined.
-rule "terraform_unused_declarations" {
-  enabled = false
-}
-
-rule "terraform_unused_required_providers" {
   enabled = false
 }
 
