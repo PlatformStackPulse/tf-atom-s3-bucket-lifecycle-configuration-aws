@@ -4,6 +4,6 @@ output "enabled" {
 }
 
 output "id" {
-  description = "ID of the lifecycle configuration"
-  value       = try(aws_s3_bucket_lifecycle_configuration.this[0].id, null)
+  description = "Bucket ID of the lifecycle configuration"
+  value       = try(aws_s3_bucket_lifecycle_configuration.this[0].bucket, null)
 }
