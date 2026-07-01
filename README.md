@@ -3,6 +3,8 @@
 [![CI](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/actions/workflows/ci.yml/badge.svg)](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/actions/workflows/ci.yml)
 [![Release](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/actions/workflows/auto-release.yml/badge.svg)](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/actions/workflows/auto-release.yml)
 
+Terraform atom that manages the `aws_s3_bucket_lifecycle_configuration` for an existing S3 bucket — storage-class transitions, object expiration, noncurrent-version handling, and incomplete-multipart cleanup.
+
 ---
 
 ## Purpose
@@ -46,7 +48,7 @@ Configures object lifecycle rules for an S3 bucket, enabling automatic transitio
 
 ```hcl
 module "bucket_lifecycle" {
-  source = "github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws?ref=v1.0.0"
+  source = "git::https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws.git?ref=v1.0.0"
 
   context   = module.this.context
   bucket_id = module.bucket.bucket_id
@@ -121,3 +123,22 @@ module "bucket_lifecycle" {
 | <a name="output_enabled"></a> [enabled](#output\_enabled) | Whether the module is enabled. |
 | <a name="output_id"></a> [id](#output\_id) | ID of the lifecycle configuration |
 <!-- END_TF_DOCS -->
+
+## Tests
+
+Unit tests live under [`tests/unit/`](tests/unit/) and run against a **mocked AWS provider**
+(`mock_provider "aws" {}`), so they need no credentials and make no real API calls. They assert
+only on plan-known values — the tf-label `id`, resource count, the `enabled` output, and input
+pass-throughs (never on computed `id`/`arn`, which are unknown under a mock provider).
+
+```bash
+terraform init -backend=false
+terraform test -test-directory=tests/unit    # unit tests (mocked, no AWS)
+make test-unit                               # same via Makefile
+```
+
+Integration tests (if present) require real AWS credentials:
+
+```bash
+terraform test -test-directory=tests/integration
+```
