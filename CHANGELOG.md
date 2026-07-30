@@ -1,6 +1,18 @@
 # Changelog
 
 
+<a name="v1.1.1-fix-deprecated-id-attribute.15"></a>
+## [v1.1.1-fix-deprecated-id-attribute.15](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/compare/v1.1.0...v1.1.1-fix-deprecated-id-attribute.15) (2026-07-30)
+
+### Bug Fixes
+
+- replace deprecated .id attribute with .bucket ([eea3023](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/commit/eea3023c7422d233461b94beae1e1d15b7fcfe05))
+
+### Documentation
+
+- regenerate README for output description change ([2c5845f](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/commit/2c5845f7ecb764e483722667b7d4cd9a1878099d))
+
+
 <a name="v1.1.0"></a>
 ## [v1.1.0](https://github.com/PlatformStackPulse/tf-atom-s3-bucket-lifecycle-configuration-aws/compare/v1.0.1-fix-add-chglog-config.9...v1.1.0) (2026-05-26)
 
