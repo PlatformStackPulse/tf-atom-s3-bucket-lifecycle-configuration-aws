@@ -127,7 +127,7 @@ module "bucket_lifecycle" {
 | Name | Description |
 |------|-------------|
 | <a name="output_enabled"></a> [enabled](#output\_enabled) | Whether the module is enabled. |
-| <a name="output_id"></a> [id](#output\_id) | ID of the lifecycle configuration |
+| <a name="output_id"></a> [id](#output\_id) | Bucket ID of the lifecycle configuration |
 <!-- END_TF_DOCS -->
 
 ## Tests
